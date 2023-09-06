@@ -1,0 +1,11 @@
+services:
+    postgres:
+        image: postgres:13
+        ports:
+            - "5800:5452"
+        environment:
+            POSTGRES_DB: eateazedatabase
+            POSTGRES_USER: eateaze-app
+            POSTGRES_PASSWORD: Ml37RemA7hEGjI
+
+        
