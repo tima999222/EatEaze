@@ -5,7 +5,6 @@ using EatEaze.Data.Entites;
 
 namespace EatEaze.WebApplicationAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class PositionsController : ControllerBase
     {
@@ -21,7 +20,7 @@ namespace EatEaze.WebApplicationAPI.Controllers
         /// Get list of positions
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet, Route("positions")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetPositions()
