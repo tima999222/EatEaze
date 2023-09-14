@@ -17,6 +17,10 @@ namespace EatEaze.WebApplicationAPI.Controllers
             _eatEazeDataContext = eatEazeDataContext;
         }
 
+        /// <summary>
+        /// Get list of positions
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
