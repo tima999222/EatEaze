@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace EatEaze.Data.Entites
@@ -15,7 +16,8 @@ namespace EatEaze.Data.Entites
         public DateTime DismissalDate { get; set; }
 
         [NotNull]
-        public string UserId { get; set; }
+        [ForeignKey("User")]
+        public int UserId { get; set; }
 
         public User User { get; set; }
     }

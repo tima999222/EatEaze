@@ -2,7 +2,7 @@ services:
     postgres:
         image: postgres:13
         ports:
-            - "5800:5452"
+            - "5800:5432"
         environment:
             POSTGRES_DB: eateazedatabase
             POSTGRES_USER: eateaze-app

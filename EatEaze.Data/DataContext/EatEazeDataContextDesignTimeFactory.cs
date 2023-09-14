@@ -5,7 +5,7 @@ namespace EatEaze.Data.DataContext
 {
     public class EatEazeDataContextDesignTimeFactory : IDesignTimeDbContextFactory<EatEazeDataContext>
     {
-        #region IDesignTimeDbContextFactory<CapitalizationDataContext> Members
+        #region IDesignTimeDbContextFactory<EatEazeDataContext> Members
 
         public EatEazeDataContext CreateDbContext(string[] args)
         {
