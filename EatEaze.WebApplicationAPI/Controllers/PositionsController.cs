@@ -25,7 +25,7 @@ namespace EatEaze.WebApplicationAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetPositions()
         {
-            var positions = _eatEazeDataContext.RestarauntRepository.GetListOfItem();
+            var positions = _eatEazeDataContext.PositionRepository.GetListOfItem();
             if (positions == null) return NotFound();
             return Ok(positions);
         }

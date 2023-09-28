@@ -7,5 +7,17 @@ services:
             POSTGRES_DB: eateazedatabase
             POSTGRES_USER: eateaze-app
             POSTGRES_PASSWORD: Ml37RemA7hEGjI
+    webapi:
+        image: eateazewebapplicationapi:dev
+        ports:
+            - "9090:80"
+            - "9091:443"
+        depends_on:
+            - postgres
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - CONNECTION_STRING_DEFAULT=host=localhost;port=5800;database=eateazedatabase;username=eateaze-app;password=Ml37RemA7hEGjI
+      
+        
 
         

@@ -10,7 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); 
+
 builder.Services.AddDbContext<IEatEazeDataContext, EatEazeDataContext>(options =>
 {
     options.UseNpgsql(connectionString);
@@ -23,8 +24,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI( c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "EatEaze API v1");
+    });
 }
+
 
 app.UseHttpsRedirection();
 
