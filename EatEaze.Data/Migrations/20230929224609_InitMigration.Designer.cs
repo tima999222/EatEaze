@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EatEaze.Data.Migrations
 {
     [DbContext(typeof(EatEazeDataContext))]
-    [Migration("20230914073147_RoleForeignKey")]
-    partial class RoleForeignKey
+    [Migration("20230929224609_InitMigration")]
+    partial class InitMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

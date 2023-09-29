@@ -103,24 +103,23 @@ namespace EatEaze.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     OrderDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     DismissalDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UserId = table.Column<string>(type: "text", nullable: false),
-                    UserId1 = table.Column<int>(type: "integer", nullable: false)
+                    UserId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.OrderId);
                     table.ForeignKey(
-                        name: "FK_Orders_Users_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Orders_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_UserId1",
+                name: "IX_Orders_UserId",
                 table: "Orders",
-                column: "UserId1");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Positions_RestarauntId",
