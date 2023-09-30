@@ -8,7 +8,10 @@ services:
             POSTGRES_USER: eateaze-app
             POSTGRES_PASSWORD: Ml37RemA7hEGjI
     webapi:
-        image: eateazewebapplicationapi:dev
+        image: eateazewebapplicationapi
+        build:
+            context: .
+            dockerfile: EatEaze.WebApplicationAPI/Dockerfile
         ports:
             - "9090:80"
             - "9091:443"
