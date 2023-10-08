@@ -19,7 +19,7 @@ builder.Services.AddDbContext<IEatEazeDataContext, EatEazeDataContext>(options =
 
 string[] a = { };
 
-builder.Services.AddSingleton<EatEazeDataContext>(new EatEazeDataContextDesignTimeFactory().CreateDbContext(a));
+builder.Services.AddSingleton<IEatEazeDataContext>(new EatEazeDataContextDesignTimeFactory().CreateDbContext(a));
 
 var app = builder.Build();
 

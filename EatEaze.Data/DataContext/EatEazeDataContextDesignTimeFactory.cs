@@ -13,7 +13,10 @@ namespace EatEaze.Data.DataContext
             optionsBuilder.UseNpgsql(
                 "host=localhost;port=5800;database=eateazedatabase;username=eateaze-app;password=Ml37RemA7hEGjI");
 
-            return new EatEazeDataContext(optionsBuilder.Options);
+            var context = new EatEazeDataContext(optionsBuilder.Options);
+            context.Database.Migrate();
+
+            return context;
         }
 
         #endregion
