@@ -10,20 +10,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); 
+var factory = new EatEazeDataContextDesignTimeFactory();
 
-builder.Services.AddDbContext<IEatEazeDataContext, EatEazeDataContext>(options =>
-{
-    options.UseNpgsql(connectionString);
-});
+string[] opt = { };
+var context = factory.CreateDbContext(opt);
 
-string[] a = { };
-
-builder.Services.AddSingleton<IEatEazeDataContext>(new EatEazeDataContextDesignTimeFactory().CreateDbContext(a));
+builder.Services.AddSingleton<IEatEazeDataContext>(context);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+//Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

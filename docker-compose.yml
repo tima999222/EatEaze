@@ -1,25 +1,34 @@
+version: "3"
+
+networks:
+    eat-eaze-dev:
+        driver: bridge
+
 services:
     postgres:
-        image: postgres:13
+        image: postgres:latest
         ports:
-            - "5800:5432"
+            - "5432:5432"
         environment:
             POSTGRES_DB: eateazedatabase
             POSTGRES_USER: eateaze-app
             POSTGRES_PASSWORD: Ml37RemA7hEGjI
+        networks:
+            - eat-eaze-dev
     webapi:
         image: eateazewebapplicationapi
         build:
             context: .
             dockerfile: EatEaze.WebApplicationAPI/Dockerfile
         ports:
-            - "9090:80"
-            - "9091:443"
+            - "80:80"
+        networks:
+            - eat-eaze-dev
         depends_on:
             - postgres
         environment:
             - ASPNETCORE_ENVIRONMENT=Development
-            - CONNECTION_STRING_DEFAULT=host=localhost;port=5800;database=eateazedatabase;username=eateaze-app;password=Ml37RemA7hEGjI
+            - CONNECTION_STRING_DEFAULT=host=localhost;port=5432;database=eateazedatabase;username=eateaze-app;password=Ml37RemA7hEGjI
       
         
 
