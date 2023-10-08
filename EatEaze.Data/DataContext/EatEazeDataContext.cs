@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using EatEaze.Data.Entites;
 using EatEaze.Data.Repositories;
-using System.Collections.Generic;
-using System.Data;
 
 namespace EatEaze.Data.DataContext
 {
@@ -41,5 +39,14 @@ namespace EatEaze.Data.DataContext
 
         #endregion
 
+        #region overrided methods
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        #endregion
     }
 }

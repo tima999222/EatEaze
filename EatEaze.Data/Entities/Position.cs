@@ -16,6 +16,6 @@ namespace EatEaze.Data.Entites
         [NotNull]
         public int RestarauntId { get; set; }
 
-        public Restaraunt Restaraunt { get; set; }
+        public virtual Restaraunt Restaraunt { get; set; }
     }
 }

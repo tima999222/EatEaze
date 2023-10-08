@@ -16,7 +16,10 @@ builder.Services.AddDbContext<IEatEazeDataContext, EatEazeDataContext>(options =
 {
     options.UseNpgsql(connectionString);
 });
-//builder.Services.AddSingleton<IEatEazeDataContext, EatEazeDataContext>();
+
+string[] a = { };
+
+builder.Services.AddSingleton<EatEazeDataContext>(new EatEazeDataContextDesignTimeFactory().CreateDbContext(a));
 
 var app = builder.Build();
 
